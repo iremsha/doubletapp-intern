@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:38540
+    volumes:
+        - .:/tochka
+    command: bash -c "python /tochka/manage.py runserver 0.0.0.0:38540"
+    ports:
+      - "38540:38540"
+    depends_on:
+      - db

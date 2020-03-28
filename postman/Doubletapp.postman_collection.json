@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "858c715f-bdd2-46ac-a87d-075ca0a946ed",
+		"name": "Doubletapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Запрос на получение всех тем.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/themes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"themes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос на получение тем с {Категория / Уровень} ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/themes/3/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"themes",
+						"3",
+						"3"
+					]
+				},
+				"description": "например этот запрос возвращает темы с категорией 3 и уровнем 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос на получение всех уровней",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/levels/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"levels",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос на получение всех категорий",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/categories/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос на получение слова с ID ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/words/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"words",
+						"1"
+					]
+				},
+				"description": "Например этот запрос вернёт слово с ID=1"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
