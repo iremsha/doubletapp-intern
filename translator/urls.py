@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.http import HttpResponseForbidden
+
 
 urlpatterns = [
     path('categories/', views.CategoriesView.as_view()),

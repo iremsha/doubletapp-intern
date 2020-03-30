@@ -6,21 +6,27 @@ from .serializers import LevelsSerializer, ThemesSerializer, WordsSerializer, Ca
 from app.settings import API_SECRET
 
 
-class LevelsView(APIView):
-    def get(self, request):
-        header = request.headers.get('Secret', None)
+def check_api_secret(view_func):
+    def wrap(self, *args, **kwargs):
+        header = self.request.headers.get('Secret', None)
         if header != API_SECRET:
             return HttpResponseForbidden()
+        else:
+            return view_func(self.request, *args, **kwargs)
+    return wrap
+
+
+class LevelsView(APIView):
+    @check_api_secret
+    def get(self, request):
         levels = Level.objects.all()
         serializer = LevelsSerializer(levels, many=True)
         return Response(serializer.data)
 
 
 class CategoriesView(APIView):
+    @check_api_secret
     def get(self, request):
-        header = request.headers.get('Secret', None)
-        if header != API_SECRET:
-            return HttpResponseForbidden()
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
 
@@ -28,10 +34,8 @@ class CategoriesView(APIView):
 
 
 class ThemesView(APIView):
+    @check_api_secret
     def get(self, request):
-        header = request.headers.get('Secret', None)
-        if header != API_SECRET:
-            return HttpResponseForbidden()
         themes = Theme.objects.all()
         category = request.GET.get('category')
         level = request.GET.get('level')
@@ -44,20 +48,16 @@ class ThemesView(APIView):
 
 
 class ThemesFilterView(APIView):
+    @check_api_secret
     def get(self, request, id):
-        header = request.headers.get('Secret', None)
-        if header != API_SECRET:
-            return HttpResponseForbidden()
         themes = Theme.objects.filter(id=id)
         serializer = ThemeSerializer(themes, many=True)
         return Response(serializer.data)
 
 
 class WordsView(APIView):
+    @check_api_secret
     def get(self, request, id):
-        header = request.headers.get('Secret', None)
-        if header != API_SECRET:
-            return HttpResponseForbidden()
         words = Word.objects.filter(id=id)
         serializer = WordsSerializer(words, many=True)
 
