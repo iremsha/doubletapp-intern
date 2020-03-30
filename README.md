@@ -19,7 +19,7 @@ Python, Django, PostgreSQL (ElephantSQL) и Docker (Compose).
 # API
   - GET /categories
   - GET /levels
-  - GET /themes
+  - GET /themes[ Query params: category: int, level: int ] 
   - GET /themes/{id}
   - GET /words/{id}
 

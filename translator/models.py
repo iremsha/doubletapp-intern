@@ -39,8 +39,8 @@ class Word(Model):
 class Theme(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=155)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-    level = models.ForeignKey(Level, on_delete=models.CASCADE, default=1)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    level = models.ForeignKey(Level, on_delete=models.CASCADE)
     words = models.ManyToManyField(Word)
     photo = models.ImageField(verbose_name='Photo link', upload_to=upload_to, blank=True)
 

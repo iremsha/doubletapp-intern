@@ -6,12 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "Запрос на получение всех тем.",
+			"name": "Запрос на получение всех тем c Категорией 3",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:38540/api/themes/",
+					"raw": "http://127.0.0.1:38540/api/themes/?category=3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -24,18 +30,30 @@
 						"api",
 						"themes",
 						""
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "3"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Запрос на получение тем с {Категория / Уровень} ",
+			"name": "Запрос на получение тем с ID",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:38540/api/themes/3/3",
+					"raw": "http://127.0.0.1:38540/api/themes/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -47,8 +65,7 @@
 					"path": [
 						"api",
 						"themes",
-						"3",
-						"3"
+						"1"
 					]
 				},
 				"description": "например этот запрос возвращает темы с категорией 3 и уровнем 3"
@@ -59,7 +76,13 @@
 			"name": "Запрос на получение всех уровней",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://127.0.0.1:38540/api/levels/",
 					"protocol": "http",
@@ -83,7 +106,13 @@
 			"name": "Запрос на получение всех категорий",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://127.0.0.1:38540/api/categories/",
 					"protocol": "http",
@@ -107,9 +136,15 @@
 			"name": "Запрос на получение слова с ID ",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:38540/api/words/1",
+					"raw": "http://127.0.0.1:38540/api/levels/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -120,11 +155,87 @@
 					"port": "38540",
 					"path": [
 						"api",
-						"words",
-						"1"
+						"levels",
+						""
 					]
 				},
 				"description": "Например этот запрос вернёт слово с ID=1"
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтрация Тем по Категориям и Уровням",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Secret",
+						"value": "755f85c2723bb39381c7379a604160d8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/themes/?category=3&level=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"themes",
+						""
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "3"
+						},
+						{
+							"key": "level",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Невалидный API SECRET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Secret",
+						"value": "lmao",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:38540/api/themes/?category=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "38540",
+					"path": [
+						"api",
+						"themes",
+						""
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		}

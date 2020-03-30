@@ -20,8 +20,20 @@ class WordsSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'translation', 'transcription', 'example', 'sound')
 
 
+class ThemesWordsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Word
+        fields = ('id', 'name')
+
+
 class ThemesSerializer(serializers.ModelSerializer):
-    words = WordsSerializer(many=True)
+    class Meta:
+        model = Theme
+        fields = ('id', 'category', 'level', 'name', 'photo')
+
+
+class ThemeSerializer(serializers.ModelSerializer):
+    words = ThemesWordsSerializer(many=True)
 
     class Meta:
         model = Theme
