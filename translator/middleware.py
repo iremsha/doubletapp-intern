@@ -7,8 +7,9 @@ from django.utils.deprecation import MiddlewareMixin
 class CheckAPISecret(MiddlewareMixin):
 
     def process_request(self, request):
-        header = request.headers.get('Secret', None)
-        if header != API_SECRET:
-            return HttpResponseForbidden()
+        if request.path[:5] == '/api/':
+            header = request.headers.get('Secret', None)
+            if header != API_SECRET:
+                return HttpResponseForbidden()
 
 
