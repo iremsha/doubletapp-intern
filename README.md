@@ -17,6 +17,8 @@ Python, Django, PostgreSQL (ElephantSQL) и Docker (Compose).
 > $ sudo docker-compose up
 
 # API
+Для того, чтобы получить данные по API в заголовке запроса необходимо указать параметр Secret: 755f85c2723bb39381c7379a604160d8.
+Иначе, ответом на ваш запрос будет код Http403
   - GET /categories
   - GET /levels
   - GET /themes[ Query params: category: int, level: int ] 
