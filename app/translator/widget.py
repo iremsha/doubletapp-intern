@@ -23,5 +23,4 @@ def widget_tag(field, type_widget):
     elif type_widget == 'photo':
         return mark_safe('<img src="{}" width="100" height="100"/>'.format(get_picture_widget(field.photo)))
     else:
-        return mark_safe('<audio controls><source src="{}" type="audio/mpeg"></audio>'
-                         .format(get_audio_widget(field.sound)))
+        return mark_safe('<audio controls><source src="{}" type="audio/mpeg"></audio>'.format(get_audio_widget(field.sound)))
